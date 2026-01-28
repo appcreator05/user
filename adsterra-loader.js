@@ -3,7 +3,7 @@
   /* ===== CONTROL ===== */
   var ENABLE_ADS = true;
   var MAX_LOAD = 1;
-  var CACHE_KEY = "v1";
+  var CACHE_KEY = "v2";
 
   if (!ENABLE_ADS) return;
 
@@ -54,3 +54,4 @@
   );
 
 })();
+
