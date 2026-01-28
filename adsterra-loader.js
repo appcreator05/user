@@ -1,15 +1,14 @@
 (function () {
 
   /* ===== GLOBAL CONTROL ===== */
-  var ENABLE_ADS = true;      // false করলে সব পোস্টে ad বন্ধ
-  var LOAD_ON_CLICK = true;  // user interaction safe
-  var MAX_LOAD = 1;          // কতবার ad load হবে
+  var ENABLE_ADS = true;   // false করলে সব পোস্টে ad off
+  var MAX_LOAD = 1;       // একবারই ad load
 
   if (!ENABLE_ADS) return;
 
   var loaded = 0;
 
-  function loadAdScripts() {
+  function loadAds() {
     if (loaded >= MAX_LOAD) return;
     loaded++;
 
@@ -25,13 +24,23 @@
     document.body.appendChild(s2);
   }
 
-  /* ===== TRIGGER ===== */
-  if (LOAD_ON_CLICK) {
-    document.addEventListener("click", function () {
-      loadAdScripts();
-    }, { once: true });
+  /* ===== PLAY ICON CLICK ONLY ===== */
+  function bindPlayIcon() {
+    var icons = document.querySelectorAll(".playIcon");
+    if (!icons.length) return;
+
+    icons.forEach(function (icon) {
+      icon.addEventListener("click", function () {
+        loadAds();
+      }, { once: true });
+    });
+  }
+
+  /* DOM ready */
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bindPlayIcon);
   } else {
-    loadAdScripts();
+    bindPlayIcon();
   }
 
 })();
