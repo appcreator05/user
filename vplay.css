@@ -1,0 +1,15 @@
+.posterWrap{position:relative;width:100%;max-width:420px;margin:auto;cursor:pointer;border-radius:10px;overflow:hidden}
+.posterWrap img{width:100%;display:block}
+.playIcon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;background:rgba(0,0,0,.6);border-radius:50%;color:#fff;font-size:36px;display:flex;align-items:center;justify-content:center;transition:.25s}
+.posterWrap:hover .playIcon{background:rgba(255,0,0,.85);transform:translate(-50%,-50%) scale(1.1)}
+#videoPopup{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:999999;display:none}
+#loader{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000001;display:none;align-items:center;justify-content:center}
+.spinner{width:48px;height:48px;border:4px solid #ffffff30;border-top:4px solid #fff;border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#container{width:100%;height:100%;position:relative}
+.videoBox{position:absolute;top:50%;left:50%;width:100vh;height:100vw;transform:translate(-50%,-50%) rotate(90deg);background:#000;overflow:hidden}
+.videoBox iframe{position:absolute;top:50%;left:50%;width:100.77vh;height:100vw;transform:translate(-50%,-50%);border:0}
+.fullBtn,.fullBtn2,.closeBtn{position:fixed;z-index:1000002;background:#ffffff20;color:#fff;border:1px solid #ffffff50;border-radius:6px;padding:8px 14px;font-size:18px;cursor:pointer}
+.fullBtn{left:6px;bottom:10px}
+.fullBtn2{right:10px;bottom:16px}
+.closeBtn{top:10px;right:10px;font-size:22px}
