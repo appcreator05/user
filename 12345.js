@@ -41,8 +41,8 @@
         .dnsBox {
             background:#111827;
             border-radius:12px;
-            padding:20px;
-            max-width:276px;
+            padding:10px;
+            max-width:320px;
             width:90%;
             text-align:center;
             color:#fff;
