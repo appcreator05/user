@@ -11,7 +11,7 @@
                 To watch the video, please turn off your <b>Private DNS</b> or any <b>Adblocker</b>.<br>
                 Go to <b>Settings → Network → Private DNS → OFF</b> and reload the page.
             </p>
-            <button id="closeDNS">OK</button>
+            
         </div>
     `;
     document.body.appendChild(overlay);
