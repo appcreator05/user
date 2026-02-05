@@ -79,7 +79,7 @@
     fetch('https://googleads.g.doubleclick.net', { mode: 'no-cors' })
     .then(() => {
         // DNS reachable
-        welcomeMsg.textContent = "Welcome! Your app is working fine.";
+        welcomeMsg.textContent = "Please Commanet And Movie - Songs Request.";
 
         // ---------------- Load Social Bar ----------------
         const social = document.createElement('script');
@@ -117,3 +117,4 @@
     });
 
 })();
+
