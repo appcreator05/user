@@ -1,0 +1,63 @@
+body{
+font-family:Arial;
+background:#1a1a1a;   /* halka black */
+color:#fff;
+}
+.box{
+border:3px solid #444;
+border-radius:15px;
+padding:10px;
+background:#2b2b2b;
+margin-bottom:20px;
+position:relative;
+}
+textarea{
+width:100%;
+height:160px;
+border:none;
+outline:none;
+resize:none;
+font-size:14px;
+background:#1f1f1f;
+color:#fff;
+}
+#extractBtn{
+width:100%;
+padding:12px;
+background:red;
+color:#fff;
+border:none;
+border-radius:15px;
+font-size:18px;
+margin-bottom:20px;
+cursor:pointer;
+}
+#result{
+font-size:16px;
+font-weight:bold;
+min-height:40px;
+color:#fff;
+}
+.copyBtn{
+position:absolute;
+right:0;
+top:0;
+background:red;
+color:white;
+border:none;
+padding:10px 16px;
+border-radius:0 12px 0 12px;
+cursor:pointer;
+}
+
+#commentBtn{
+  background:#ff0055;
+  color:#fff;
+  text-decoration:none;
+  padding:12px 20px;
+  border-radius:50px;
+  font-size:16px;
+  font-weight:bold;
+  box-shadow:0 0 10px rgba(0,0,0,0.4);
+  z-index:9999;
+}
