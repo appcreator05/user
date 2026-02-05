@@ -1,5 +1,3 @@
-// Ads Loader Script
-
 var s1 = document.createElement("script");
 s1.innerHTML = `
 atOptions = {
