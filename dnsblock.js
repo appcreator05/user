@@ -31,11 +31,6 @@
 
   document.body.appendChild(overlay);
 
-  const welcomeMsg = document.createElement('div');
-  welcomeMsg.id = 'welcome-msg';
-  welcomeMsg.textContent = 'Loading... Please wait';
-  document.body.appendChild(welcomeMsg);
-
   const style = document.createElement('style');
   style.innerHTML = `
   body{
@@ -44,12 +39,6 @@
     background:#0b1020;
     color:#fff;
     text-align:center;
-  }
-
-  #welcome-msg{
-    margin-top:60px;
-    font-size:16px;
-    opacity:.9;
   }
 
   #dnsOverlay{
@@ -130,7 +119,7 @@
   })
   .then(() => {
     checked = true;
-    welcomeMsg.textContent = "Welcome! Your app is working normally.";
+    // DNS OFF → nothing happens
   })
   .catch(() => {
     checked = true;
@@ -142,7 +131,6 @@
   }, 2500);
 
   function showOverlay(){
-    welcomeMsg.style.display = "none";
     overlay.style.display = "flex";
   }
 
