@@ -4,7 +4,7 @@ if (window.__dnsCheckerLoaded) {
 } else {
   window.__dnsCheckerLoaded = true;
 
-  console.log("DNS CHECKER VERSION 1.0"); // version track
+  console.log("DNS CHECKER VERSION 2.0"); // version track
 
   // ===== CSS =====
   const style = document.createElement('style');
