@@ -1,0 +1,218 @@
+
+      .is-single #content-wrapper > .container {
+        display: flex;justify-content: space-between;background: #000;}.item-post h1.entry-title{display: none;}.is-single #content-wrapper {padding: 0px 0 0px;}#footer-wrapper{display: none;}#post-body{margin: 0px 0 0;}#header-wrapper{display: none;}#content-wrapper > .container, #footer-ads-wrap > .container, #footer-fbm .container, #footer-wrapper .container, #header-ads-wrap > .container, #header-wrapper .container, #trending-wrap > .container, .hero-post .flex-center{padding: 0 1px;}
+        /* Base Styles */
+        body { background: #000; color: white; margin: 0; font-family: 'Segoe UI', Roboto, sans-serif; overflow: hidden; }
+        .app-container { width: 100%; height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; scrollbar-width: none; }
+        .app-container::-webkit-scrollbar { display: none; }
+        
+        /* Video Card */
+        .video-card { width: 100%; height: 100vh; scroll-snap-align: start; position: relative; background: #000; display: flex; align-items: center; }
+        video { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Header */
+        .top-header { position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; box-sizing: border-box; z-index: 100; background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent); }
+        .upload-btn { background: #fe2c55; color: #fff; padding: 8px 18px; border-radius: 20px; cursor: pointer; font-weight: bold; border: none; transition: 0.3s; }
+
+        /* Video Info & Side Icons */
+        .video-info-bottom { position: absolute; bottom: 30px; left: 15px; z-index: 10; display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        .uploader-logo { width: 45px; height: 45px; border-radius: 50%; border: 2px solid #fff; object-fit: cover; }
+        .user-name { font-weight: bold; font-size: 16px; text-shadow: 0 1px 5px rgba(0,0,0,0.5); color: white;}
+
+        .side-icons { position: absolute; right: 15px; bottom: 40px; display: flex; flex-direction: column; gap: 20px; z-index: 10; text-align: center; }
+        .icon-btn { font-size: 28px; cursor: pointer; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        .icon-btn span { display: block; font-size: 12px; margin-top: 4px; font-weight: bold; color: #fff; }
+
+        /* Modals & Login */
+        .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: none; align-items: center; justify-content: center; z-index: 20000; }
+        .modal-box { background: #1a1a1a; padding: 25px; border-radius: 20px; width: 85%; max-width: 350px; text-align: center; border: 1px solid #333; }
+        .modal-box input { width: 100%; padding: 12px; margin: 8px 0; background: #222; border: 1px solid #444; color: #fff; border-radius: 10px; box-sizing: border-box; outline: none; }
+        .logo-picker { position: relative; width: 80px; height: 80px; margin: 0 auto 15px; cursor: pointer; border-radius: 50%; overflow: hidden; background: #222; border: 2px dashed #444; }
+        #logoPreview { width: 100%; height: 100%; object-fit: cover; }
+        .logo-picker span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 10px; color: #888; }
+
+        /* Drawer */
+        .drawer { position: fixed; bottom: -100%; left: 0; width: 100%; height: 65%; background: #1a1a1a; z-index: 10000; transition: bottom 0.3s ease; border-radius: 20px 20px 0 0; display: flex; flex-direction: column; }
+        .drawer.active { bottom: 0; }
+        .drawer-header { padding: 15px; text-align: center; font-weight: bold; border-bottom: 1px solid #333; position: relative; }
+        .close-drawer { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 24px; color: #fff; }
+        .drawer-list { flex: 1; overflow-y: auto; padding: 15px; }
+        .drawer-item { margin-bottom: 15px; display: flex; gap: 10px; }
+        .drawer-item img { width: 35px; height: 35px; border-radius: 50%; }
+        .drawer-content { background: #2b2b2b; padding: 8px 12px; border-radius: 12px; max-width: 80%; }
+        .drawer-input-area { padding: 15px; display: flex; gap: 10px; border-top: 1px solid #333; background: #111; padding-bottom: 30px; }
+        .drawer-input-area input { flex: 1; background: #222; border: 1px solid #333; padding: 12px; border-radius: 25px; color: white; outline: none; }
+
+        /* Profile & Thumbnail Stats */
+        .profile-view { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 5000; display: none; flex-direction: column; overflow-y: auto; }
+        .profile-header { padding: 25px 15px; background: #111; border-bottom: 1px solid #222; }
+        .p-logo { width: 85px; height: 85px; border-radius: 50%; border: 3px solid #fe2c55; object-fit: cover; }
+        
+        .profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; padding: 2px; }
+        .grid-item { position: relative; aspect-ratio: 9/16; background: #111; overflow: hidden; cursor: pointer; }
+        .grid-item video { width: 100%; height: 100%; object-fit: cover; }
+        .grid-stats { position: absolute; bottom: 5px; width: 100%; display: flex; justify-content: space-around; font-size: 11px; font-weight: bold; text-shadow: 1px 1px 3px #000; background: rgba(0,0,0,0.3); padding: 2px 0; color: white;}
+
+        /* Loader */
+        #mainLoader {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9); /* à¦¹à¦¾à¦²à¦•à¦¾ à¦¸à§à¦¬à¦šà§à¦› à¦•à¦¾à¦²à§‹ */
+    display: none; /* à¦¶à§à¦°à§à¦¤à§‡ à¦²à§à¦•à¦¾à¦¨à§‹ à¦¥à¦¾à¦•à¦¬à§‡ */
+    flex-direction: column; /* à¦†à¦‡à¦Ÿà§‡à¦®à¦—à§à¦²à§‹ à¦¨à¦¿à¦šà§‡ à¦¨à¦¿à¦šà§‡ à¦¦à§‡à¦–à¦¾à¦¬à§‡ */
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+        .spinner { width: 40px; height: 40px; border: 4px solid #333; border-top: 4px solid #fe2c55; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        /* à¦…à¦¤à¦¿à¦°à¦¿à¦•à§à¦¤ à¦•à¦¿à¦›à§ à¦«à¦¿à¦•à§à¦¸ à¦¯à¦¾ CSS à¦«à¦¾à¦‡à¦²à§‡ à¦¨à¦¾ à¦¥à¦¾à¦•à¦²à§‡ à¦•à¦¾à¦œ à¦•à¦°à¦¬à§‡ */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; }
+        .modal-box { background: #111; padding: 25px; border-radius: 15px; width: 85%; max-width: 350px; text-align: center; color: white; }
+        .logo-picker { width: 80px; height: 80px; border: 2px dashed #fe2c55; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; cursor: pointer; }
+        #logoPreview { width: 100%; height: 100%; object-fit: cover; position: absolute; }
+        input[type="text"], input[type="email"], input[type="password"] { width: 90%; padding: 10px; margin: 10px 0; background: #222; border: 1px solid #333; color: white; border-radius: 5px; }
+        #mainLoader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 3000; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .spinner { width: 40px; height: 40px; border: 4px solid #333; border-top: 4px solid #fe2c55; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+		.side-icons { position: absolute; right: 15px; bottom: 84px; display: flex; flex-direction: column; gap: 19px; z-index: 10; text-align: center; }
+        .drawer{ position:fixed; bottom:-100%; left:0; width:100%; height:70%; background:#111; z-index:9999; transition:.3s; border-top-left-radius:15px; border-top-right-radius:15px; display:flex; flex-direction:column; }
+        .drawer.active{ bottom:0; }
+        .drawer-header{ padding:15px; border-bottom:1px solid #333; display:flex; justify-content:space-between; color:white; }
+        .drawer-list{ flex:1; overflow:auto; padding:10px; }
+        .drawer-input{ display:flex; padding:10px; border-top:1px solid #333; }
+        .drawer-input input{ flex:1; padding:10px; background:#222; border:none; color:white; border-radius:8px; }
+        .drawer-input button{ margin-left:5px; background:#fe2c55; border:none; color:white; padding:10px; border-radius:8px; }
+        .grid-item{ position:relative; }
+        .grid-stats{ position:absolute; bottom:5px; left:0px; right:5px; display:flex; justify-content:space-between; color:white; font-size:12px; background:rgba(0,0,0,.5); padding:3px 6px; border-radius:6px; width: 89%; }
+        .profile-header { padding: 5px 8px; }
+        .modal-box{padding: 16px;}
+        #mainLoader { display: flex; flex-direction: column; align-items: center; justify-content: center; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10001; display: none; }
+        .drawer.active {
+    bottom: 0; /* Eta drawer-ke upore niye ashbe */
+}
+    /* Custom Popup Styling */
+.modal {
+    display: none; 
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.8); 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 9999;
+}
+
+.modal-box {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 15px;
+    width: 85%;
+    max-width: 300px;
+    border: 1px solid #333;
+    animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+/* code.css এ এই অংশটি update বা check করুন */
+
+/* Side icons layout-ti thik kora */
+.side-icons {
+    position: absolute;
+    right: 10px;
+    bottom: 120px; /* Purono: 80px/100px. upore neyar jonno barano holo */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Group gulo kacher modhe rakha */
+    z-index: 100;
+}
+
+/* Icon ebong Number-ke vertical align kora */
+.icon-group {
+    display: flex;
+    flex-direction: column; /* Icon ebong number upore niche thakbe */
+    align-items: center; /* Center horizontally */
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Icon-gulo boro kora */
+.icon-group i {
+    font-size: 32px; /* Purono: 24px/28px. icon boro kora holo */
+    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.5)); /* Shade dhorano */
+    margin-bottom: 5px; /* Icon ebong number-er majhe gap */
+}
+
+/* Number ba Countdown text formatting */
+.icon-group .count {
+    font-size: 13px; /* Number ektu choto thaka bhalo */
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* Text jate sposto thake */
+}
+
+.monetize-stats {
+    font-size: 13px;
+    color: #bbb;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+.withdraw-btn {
+    background: #ffcc00;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Profile Grid Item Positioning */
+.grid-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Stats overlay style (Likes & Views) */
+.grid-stats {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7)); /* niche kalo shadow */
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    pointer-events: none; /* jate click e bati na dey */
+}
+
+.grid-stats span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.grid-stats i {
+    font-size: 10px;
+}
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; z-index: 9999; }
+        .modal-box { background: #1a1a1a; padding: 20px; border-radius: 15px; width: 85%; max-width: 300px; border: 1px solid #333; animation: popIn 0.3s ease-out; }
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        #videoFeed { min-height: 100vh; background: #000; scroll-behavior: smooth; }
+        
+        /* Profile Grid styling ensure kora */
+        .profile-video-item {
+            width: 100%;
+            aspect-ratio: 9/16;
+            background: #222;
+            cursor: pointer;
+            object-fit: cover;
+            border: 0.5px solid #111;
+        }
