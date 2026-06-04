@@ -1,0 +1,22 @@
+{
+  "name": "Movie App",
+  "short_name": "Movie App",
+  "description": "Watch and download your favorite movies",
+  "start_url": "/?utm_source=pwa",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#e50914",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsdiKpWegmTSQhbEvr-UEPGRI3imD11XUhbY35mgZ-n-e_79iK76l5zquhK3y41YAEWaof48ZAB3Wb6ywpn6awDsNQNMXViUZk0N7-7APlAudBiL_XV634-_nqh371L-iOayIvoUXfdCrrlpd1T-Ik0ceRS6V0XDQTm34K5aYP9b_0WzcYscLneDbfJihg/s1600/loho.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsdiKpWegmTSQhbEvr-UEPGRI3imD11XUhbY35mgZ-n-e_79iK76l5zquhK3y41YAEWaof48ZAB3Wb6ywpn6awDsNQNMXViUZk0N7-7APlAudBiL_XV634-_nqh371L-iOayIvoUXfdCrrlpd1T-Ik0ceRS6V0XDQTm34K5aYP9b_0WzcYscLneDbfJihg/s1600/loho.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
