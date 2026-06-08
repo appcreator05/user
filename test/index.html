@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VDOSky - Premium Player App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/appcreator05/user@main/plyr.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <div class="search-header">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-bar" placeholder="Type movie name or description...">
+            </div>
+        </div>
+
+        <div class="categories-row">
+            <button class="category-chip active" data-genre="all">All</button>
+            <button class="category-chip" data-genre="Action">Action</button>
+            <button class="category-chip" data-genre="Drama">Drama</button>
+            <button class="category-chip" data-genre="Sci-Fi">Sci-Fi</button>
+            <button class="category-chip" data-genre="Thriller">Thriller</button>
+        </div>
+
+        <div class="scrollable-content">
+            <div class="movies-grid" id="movies-grid">
+                </div>
+        </div>
+
+        <div class="bottom-nav">
+            <div class="nav-item active"><i class="fa-solid fa-house"></i><span>হোম</span></div>
+            <div class="nav-item"><i class="fa-solid fa-magnifying-glass"></i><span>খুঁজুন</span></div>
+            <div class="nav-item"><i class="fa-solid fa-arrow-down"></i><span>ডাউনলোড</span></div>
+            <div class="nav-item"><i class="fa-solid fa-user"></i><span>প্রোফাইল</span></div>
+        </div>
+    </div>
+
+    <div id="videoPopup">
+        <div id="container">
+            <div class="videoBox">
+                <video id="player" playsinline preload="metadata">
+                    <source id="videoSource" src="" type="video/mp4">
+                    Browser not supported.
+                </video>
+            </div>
+            <button class="fullBtn" onclick="toggleFull()">⛶</button>
+            <button class="fullBtn2" onclick="toggleFull()">⛶</button>
+            <button class="closeBtn" onclick="closePlayer()">✕</button>
+        </div>
+    </div>
+
+    <div id="loader"><div class="spinner"></div></div>
+
+    <script src="https://cdn.jsdelivr.net/gh/appcreator05/user@main/plyr.js"></script>
+    <script src="script.js"></script>
+	
+	<style>
+/* লিঙ্কের এরর পপআপ ডিজাইন */
+#errorPopup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000005;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.errorCard {
+    background: #222;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    max-width: 300px;
+    width: 85%;
+    border: 1px solid #ff3b30;
+}
+.errorCard h3 {
+    color: #ff3b30;
+    margin: 0 0 15px 0;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.errorBtn {
+    background: #ff3b30;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    width: 100%;
+    transition: 0.2s;
+}
+.errorCard .closeAlert {
+    background: transparent;
+    color: #bbb;
+    border: none;
+    margin-top: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+}
+</style>
+
+<!-- এরর পপআপ উইন্ডো -->
+<div id="errorPopup">
+  <div class="errorCard">
+    <h3>This player not work</h3>
+    <button class="errorBtn" onclick="handleThemeCommentClick()">Please Comment</button>
+    <button class="closeAlert" onclick="closeThemeErrorPopup()">Cancel</button>
+  </div>
+</div>
+</body>
+</html>
