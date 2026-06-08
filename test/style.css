@@ -1,0 +1,97 @@
+/* ১. অ্যাপের বেসিক লেআউট */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; -webkit-tap-highlight-color: transparent; }
+body { background-color: #000; color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.app-container { width: 100%; max-width: 1200px; height: 100vh; background-color: #121212; position: relative; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.8); }
+
+/* ২. সার্চ ও ক্যাটাগরি */
+.search-header { padding: 15px; background-color: #121212; }
+.search-box { background-color: #222; display: flex; align-items: center; padding: 10px 15px; border-radius: 25px; border: 1px solid #333; }
+.search-box input { background: none; border: none; color: #fff; width: 100%; font-size: 14px; outline: none; }
+.categories-row { display: flex; gap: 10px; padding: 0 15px 15px; overflow-x: auto; white-space: nowrap; }
+.categories-row::-webkit-scrollbar { display: none; }
+.category-chip { background-color: #222; color: #ccc; border: none; padding: 8px 16px; border-radius: 20px; font-size: 13px; cursor: pointer; }
+.category-chip.active { background-color: #e50914; color: #fff; }
+
+/* ৩. রেসপন্সিভ গ্রিড (মুভি কার্ডের জন্য) */
+.scrollable-content { flex: 1; overflow-y: auto; padding-bottom: 80px; }
+.movies-grid { 
+    display: grid; 
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 20px; 
+    padding: 15px; 
+}
+@media screen and (min-width: 500px) { .movies-grid { grid-template-columns: repeat(2, 1fr); } }
+@media screen and (min-width: 800px) { .movies-grid { grid-template-columns: repeat(3, 1fr); } }
+@media screen and (min-width: 1024px) { .movies-grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* ৪. মুভি কার্ড স্টাইল */
+.movie-card { background-color: #1c1c1c; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; width: 100%; }
+.card-img-container { position: relative; width: 100%; height: auto; cursor: pointer; border-radius: 12px; overflow: hidden; }
+.card-img-container img { width: 100%; height: auto; display: block; object-fit: contain; }
+.rating-badge { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #ffb703; font-size: 12px; font-weight: bold; padding: 4px 8px; border-radius: 5px; }
+.movie-details { padding: 10px; }
+.movie-details h3 { font-size: 16px; color: #fff; margin-bottom: 5px; }
+.movie-details p { font-size: 13px; color: #aaa; }
+
+/* ৫. প্লেয়ার পপআপ ও কন্ট্রোল বাটন (সবচেয়ে গুরুত্বপূর্ণ) */
+#videoPopup { position: fixed; inset: 0; background: rgba(0,0,0,.95); z-index: 999999; display: none; align-items: center; justify-content: center; }
+#loader { position: fixed; inset: 0; background: rgba(0,0,0,.8); z-index: 1000001; display: none; align-items: center; justify-content: center; }
+.spinner { width: 50px; height: 50px; border: 5px solid #ffffff30; border-top: 5px solid #e50914; border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* বাটন ফিক্স */
+.fullBtn, .fullBtn2, .closeBtn { 
+    position: fixed; 
+    z-index: 1000005 !important; 
+    background: rgba(255,255,255,0.2); 
+    color: #fff; 
+    border-radius: 50%; 
+    padding: 12px; 
+    font-size: 20px; 
+    cursor: pointer; 
+    border: none;
+}
+.closeBtn { top: 20px; right: 20px; }
+.fullBtn { left: 20px; bottom: 20px; }
+.fullBtn2 { right: 20px; bottom: 20px; }
+
+/* ভিডিও বক্স */
+.videoBox { position: relative; width: 100%; height: 100%; background: #000; }
+.videoBox .plyr, .videoBox video { width: 100% !important; height: 100% !important; }
+@media screen and (orientation: portrait) {
+    .videoBox { width: 100vh; height: 100vw; transform: translate(-50%, -50%) rotate(90deg); position: absolute; top: 50%; left: 50%; }
+}
+/* ৫. বটম নেভিগেশন ফিক্স */
+.bottom-nav { 
+    position: fixed; /* এখানে fixed করা হয়েছে যাতে এটি সবসময় নিচে থাকে */
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 60px; 
+    background-color: #161616; 
+    border-top: 1px solid #252525; 
+    display: flex; 
+    justify-content: space-between; /* এটি আইটেমগুলোর মাঝে সমান জায়গা তৈরি করবে */
+    align-items: center; 
+    padding: 0 20px; /* দুই পাশ থেকে সমান জায়গা */
+    z-index: 1000003; 
+}
+
+.nav-item { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    color: #666; 
+    font-size: 11px; 
+    flex: 1; /* প্রতিটি আইটেম সমান জায়গা নেবে */
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav-item i { 
+    font-size: 20px; 
+    margin-bottom: 3px; 
+}
+
+.nav-item.active { color: #e50914; }
