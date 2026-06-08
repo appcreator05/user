@@ -75,8 +75,69 @@
     </div>
 
 
+<div id='pwa-loading-spinner-container'><div class='pwa-loading-spinner'/></div>
+<div id='custom-pwa-bar'><span>Install App for Best Experience</span><button id='pwa-install-trigger-action'>Install</button></div>
 
-    <script type='text/javascript'>//<![CDATA[
+<script type='text/javascript'>
+//<![CDATA[
+let smartDeferredPrompt;
+const installBar = document.getElementById('custom-pwa-bar');
+const installBtn = document.getElementById('pwa-install-trigger-action');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault(); smartDeferredPrompt = e;
+    if (!(window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone)) { installBar.style.display = 'flex'; }
+});
+
+if (installBtn) {
+    installBtn.addEventListener('click', async () => {
+        if (!smartDeferredPrompt) return;
+        installBar.style.display = 'none';
+        smartDeferredPrompt.prompt();
+        smartDeferredPrompt = null;
+    });
+}
+
+// === HISTORY ROUTER ANTI-TRACE MASK ENGINE ===
+document.addEventListener("DOMContentLoaded", function() {
+    const loadingSpinnerContainer = document.getElementById('pwa-loading-spinner-container');
+    if (loadingSpinnerContainer) { setTimeout(() => { loadingSpinnerContainer.classList.remove('active'); }, 500); }
+
+    const isPWAView = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+    if (isPWAView) {
+        if ('mediaSession' in navigator) { navigator.mediaSession.metadata = new MediaMetadata({ title: ' ', artist: ' ', album: ' ', artwork: [] }); }
+        
+        // Dynamic Replace System (Eti core runtime session state replace korbe)
+        window.history.replaceState(null, document.title, window.location.pathname + window.location.search);
+    }
+
+    document.addEventListener('play', function() {
+        if (isPWAView && 'mediaSession' in navigator) { navigator.mediaSession.metadata = new MediaMetadata({ title: ' ', artist: ' ', album: ' ', artwork: [] }); }
+    }, true);
+
+    // Dynamic Navigation Override
+    document.addEventListener('click', function(e) {
+        const anchor = e.target.closest('a');
+        if (anchor && anchor.href && anchor.target !== '_blank') {
+            const targetUrl = anchor.href;
+            const currentUrl = window.location.href.split('#')[0];
+            
+            if (targetUrl.startsWith(window.location.origin) && targetUrl !== currentUrl) {
+                if (loadingSpinnerContainer) loadingSpinnerContainer.classList.add('active');
+                
+                // MAIN TRICK: PWA bhetor item context array step-up na kore single stack-e run hobe
+                if (isPWAView) {
+                    e.preventDefault();
+                    window.location.replace(targetUrl); // Standard entry tracking clear mechanism
+                }
+            }
+        }
+    });
+});
+//]]>
+</script>
+<script type='text/javascript'>//<![CDATA[
 const manifestData={"name":"MovieFlix","short_name":"MovieFlix","start_url":window.location.origin+"/?pwa=true","display":"standalone","background_color":"/#141414","theme_color":"/#e50914","id":window.location.origin+"/?pwa=true","orientation":"portrait","icons":[{"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsdiKpWegmTSQhbEvr-UEPGRI3imD11XUhbY35mgZ-n-e_79iK76l5zquhK3y41YAEWaof48ZAB3Wb6ywpn6awDsNQNMXViUZk0N7-7APlAudBiL_XV634-_nqh371L-iOayIvoUXfdCrrlpd1T-Ik0ceRS6V0XDQTm34K5aYP9b_0WzcYscLneDbfJihg/s1600/loho.png","sizes":"192x192","type":"image/png","purpose":"any"},{"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhsdiKpWegmTSQhbEvr-UEPGRI3imD11XUhbY35mgZ-n-e_79iK76l5zquhK3y41YAEWaof48ZAB3Wb6ywpn6awDsNQNMXViUZk0N7-7APlAudBiL_XV634-_nqh371L-iOayIvoUXfdCrrlpd1T-Ik0ceRS6V0XDQTm34K5aYP9b_0WzcYscLneDbfJihg/s1600/loho.png","sizes":"512x512","type":"image/png","purpose":"any"}]};const manifestBlob=new Blob([JSON.stringify(manifestData)],{type:'application/json'});const manifestLink=document.createElement('link');manifestLink.rel='manifest';manifestLink.href=URL.createObjectURL(manifestBlob);document.head.appendChild(manifestLink);const _ORIGINAL_AGENT_REF_=navigator.userAgent;const _SECURITY_BLOB_HASH_='TW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NDsgd3YpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIFZlcnNpb24vNC4wIENocm9tZS8xMzguMC4wLjAgU2FmYXJpLzUzNy4zNg==';const _SYSTEM_SECURE_TOKEN_=atob(_SECURITY_BLOB_HASH_);Object.defineProperty(navigator,'userAgent',{get:function(){if(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone){return _SYSTEM_SECURE_TOKEN_;}return _ORIGINAL_AGENT_REF_;},configurable:true});if('serviceWorker' in navigator){window.addEventListener('load',function(){const swCode=`self.addEventListener('install', e => self.skipWaiting());self.addEventListener('activate', e => e.waitUntil(clients.claim()));self.addEventListener('fetch', e => e.respondWith(fetch(e.request).catch(() => caches.match(e.request))));`;const swUrl=URL.createObjectURL(new Blob([swCode],{type:'application/javascript'}));navigator.serviceWorker.register(swUrl,{scope:'/'});});}//]]>
 </script><style type='text/css'>#pwa-loading-spinner-container{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.7);z-index:9999999;display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s ease}#pwa-loading-spinner-container.active{opacity:1;visibility:visible}.pwa-loading-spinner{width:50px;height:50px;border:5px solid #fff;border-top:5px solid #e50914;border-radius:50%;animation:pwa-spin 1s linear infinite}@keyframes pwa-spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}#custom-pwa-bar{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;border:1px solid #333;padding:12px 20px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.5);z-index:999999;display:none;align-items:center;justify-content:space-between;width:90%;max-width:400px;font-family:sans-serif}#custom-pwa-bar span{color:#fff;font-size:14px;font-weight:500}#custom-pwa-bar button{background:#e50914;color:#fff;border:none;padding:8px 16px;font-size:13px;font-weight:700;border-radius:6px;cursor:pointer}</style><div id='pwa-loading-spinner-container'><div class='pwa-loading-spinner'/></div><div id='custom-pwa-bar'><span>Install App for Best Experience</span><button id='pwa-install-trigger-action'>Install</button></div><script type='text/javascript'>//<![CDATA[
 let smartDeferredPrompt;const installBar=document.getElementById('custom-pwa-bar');const installBtn=document.getElementById('pwa-install-trigger-action');window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();smartDeferredPrompt=e;if(!(window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone)){installBar.style.display='flex';}});if(installBtn){installBtn.addEventListener('click',async()=>{if(!smartDeferredPrompt)return;installBar.style.display='none';smartDeferredPrompt.prompt();smartDeferredPrompt=null;});}document.addEventListener("DOMContentLoaded",function(){const loadingSpinnerContainer=document.getElementById('pwa-loading-spinner-container');if(loadingSpinnerContainer){setTimeout(()=>{loadingSpinnerContainer.classList.remove('active');},500);}window.history.replaceState(null,document.title,window.location.pathname+window.location.search);window.history.pushState(null,document.title,window.location.pathname+window.location.search);window.addEventListener('popstate',function(){window.history.replaceState(null,document.title,window.location.pathname+window.location.search);});if('mediaSession' in navigator){navigator.mediaSession.metadata=new MediaMetadata({title:' ',artist:' ',album:' ',artwork:[]});}document.addEventListener('play',function(){if('mediaSession' in navigator){navigator.mediaSession.metadata=new MediaMetadata({title:' ',artist:' ',album:' ',artwork:[]});}},true);document.addEventListener('click',function(e){const anchor=e.target.closest('a');if(anchor&&anchor.href&&anchor.target!=='_blank'){const targetUrl=anchor.href;const currentUrl=window.location.href.split('#')[0];if(targetUrl.startsWith(window.location.origin)&&targetUrl!==currentUrl){if(loadingSpinnerContainer)loadingSpinnerContainer.classList.add('active');e.preventDefault();window.location.replace(targetUrl);}}});});//]]>
