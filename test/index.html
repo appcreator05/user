@@ -8,6 +8,49 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/appcreator05/user@main/plyr.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/appcreator05/user@main/test/style.css">
+	       <style>
+.new-nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background: #000;
+    
+    padding: 10px 0;
+
+    z-index: 9999;
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.nav-item i {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.nav-item.active {
+    color: #007bff;
+}
+
+.movie-details p { font-size: 13px; color: #aaa; overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;}
+  
+  .btn-play {
+    display: none !important;
+}
+</style>
 </head>
 <body>
 
@@ -31,12 +74,24 @@
             <div class="movies-grid" id="movies-grid"></div>
         </div>
 
-        <div class="bottom-nav">
-            <div class="nav-item active"><i class="fa-solid fa-house"></i><span>হোম</span></div>
-            <div class="nav-item"><i class="fa-solid fa-magnifying-glass"></i><span>খুঁজুন</span></div>
-            <div class="nav-item"><i class="fa-solid fa-arrow-down"></i><span>ডাউনলোড</span></div>
-            <div class="nav-item"><i class="fa-solid fa-user"></i><span>প্রোফাইল</span></div>
-        </div>
+<div class="new-nav-bar">
+    <div class="nav-item active">
+        <i class="fa-solid fa-house"></i>
+        <span>হোম</span>
+    </div>
+    <div class="nav-item">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>খুঁজুন</span>
+    </div>
+    <div class="nav-item">
+        <i class="fa-solid fa-arrow-down"></i>
+        <span>ডাউনলোড</span>
+    </div>
+    <div class="nav-item">
+        <i class="fa-solid fa-user"></i>
+        <span>প্রোফাইল</span>
+    </div>
+</div>
     </div>
 
     <div id="videoPopup">
