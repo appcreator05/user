@@ -129,3 +129,4 @@ searchBar?.addEventListener('input', () => {
 
 // শুরুর কল
 fetchMovies();
+
