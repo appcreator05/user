@@ -42,22 +42,30 @@ body { background-color: #000; color: #fff; display: flex; justify-content: cent
 .spinner { width: 50px; height: 50px; border: 5px solid #ffffff30; border-top: 5px solid #e50914; border-radius: 50%; animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* বাটন ফিক্স */
-.fullBtn, .fullBtn2, .closeBtn { 
-    position: fixed; 
-    z-index: 1000005 !important; 
-    background: rgba(255,255,255,0.2); 
-    color: #fff; 
-    border-radius: 50%; 
-    padding: 12px; 
-    font-size: 20px; 
-    cursor: pointer; 
-    border: none;
+#container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 9999999;
 }
-.closeBtn { top: 20px; right: 20px; }
-.fullBtn { left: 20px; bottom: 20px; }
-.fullBtn2 { right: 20px; bottom: 20px; }
 
+.fullBtn, .fullBtn2, .closeBtn {
+    position: absolute !important; /* fixed এর বদলে absolute */
+    z-index: 99999999 !important; /* সর্বোচ্চ লেয়ারে রাখা */
+    background: rgba(0,0,0,0.5) !important;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 20px;
+    cursor: pointer;
+    pointer-events: auto !important; /* এটি ক্লিক করার জন্য সবচেয়ে জরুরি */
+}
+
+/* নিশ্চিত করুন যেন বাটনগুলো কন্ট্রোল বারের ওপরে থাকে */
+.fullBtn { left: 35px; bottom: 20px; }
+.fullBtn2 { right: 20px; bottom: 20px; }
+.closeBtn { top: 20px; right: 20px; }
 /* ভিডিও বক্স */
 .videoBox { position: relative; width: 100%; height: 100%; background: #000; }
 .videoBox .plyr, .videoBox video { width: 100% !important; height: 100% !important; }
