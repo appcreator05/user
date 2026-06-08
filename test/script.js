@@ -1,5 +1,5 @@
 // =========================================================
-// ১. মেইন কনফিগারেশন
+// ১. কনফিগারেশন
 // =========================================================
 const BASE_VIDEO_URL = "https://debasis.installapkapps.workers.dev/?id=";
 const JSON_URL = "https://raw.githubusercontent.com/appcreator05/user/refs/heads/main/test/movies.json";
@@ -9,9 +9,9 @@ const searchBar = document.getElementById('search-bar');
 const popup = document.getElementById("videoPopup");
 const loader = document.getElementById("loader");
 const videoPlayer = document.getElementById("player");
-const videoSource = document.getElementById("videoSource");
+const container = document.getElementById("container");
 
-let allMovies = []; // এখানে সব মুভি জমা থাকবে
+let allMovies = [];
 
 // Plyr ইনিশিয়ালাইজেশন
 const player = new Plyr('#player', {
@@ -22,13 +22,12 @@ const player = new Plyr('#player', {
 });
 
 // =========================================================
-// ২. JSON থেকে ডাটা লোড করার লজিক
+// ২. JSON থেকে ডাটা লোড
 // =========================================================
 async function fetchMovies() {
     try {
         const response = await fetch(JSON_URL);
         const data = await response.json();
-        // ডাটা ফরম্যাট মিলিয়ে নেওয়া (আপনার JSON-এ poster, description, id আছে)
         allMovies = data.map(m => ({
             title: m.title,
             thumbnail: m.poster,
@@ -37,53 +36,11 @@ async function fetchMovies() {
             videoId: m.id
         }));
         displayMovies(allMovies);
-    } catch (err) {
-        console.error("মুভি ডাটা লোড করতে সমস্যা হয়েছে:", err);
-    }
+    } catch (err) { console.error("মুভি ডাটা লোড ব্যর্থ:", err); }
 }
 
-// =========================================================
-// ৩. ৩ সেকেন্ড চেকার ও প্লেয়ার কন্ট্রোল লজিক
-// =========================================================
-function openPlayer(id) {
-    if (loader) loader.style.display = "flex";
-    const checkUrl = "https://lh3.googleusercontent.com/d/" + id + "=w200-h200-p";
-    const img = new Image();
-    let isLinkValid = false;
-    img.onload = () => isLinkValid = true;
-    img.onerror = () => isLinkValid = false;
-    img.src = checkUrl;
-
-    setTimeout(() => {
-        if (isLinkValid || true) { // সত্য হলে প্লে হবে
-            startActualPlayer(id);
-        } else {
-            if (loader) loader.style.display = "none";
-            showThemePlayerError(); 
-        }
-    }, 3000);
-}
-
-function startActualPlayer(id) {
-    popup.style.display = "block";
-    document.body.style.overflow = "hidden";
-    const finalVideoUrl = BASE_VIDEO_URL + id;
-    videoPlayer.src = finalVideoUrl;
-    if(videoSource) videoSource.src = finalVideoUrl;
-    videoPlayer.load(); 
-    player.source = { type: 'video', sources: [{ src: finalVideoUrl, type: 'video/mp4' }] };
-    
-    setTimeout(() => {
-        player.play().catch(e => console.log("Play failed:", e));
-        fixPlyrTimeline();
-        loader.style.display = "none"; 
-    }, 1000);
-}
-
-// =========================================================
-// ৪. ইউটিলিটি ও ডিসপ্লে ফাংশন
-// =========================================================
 function displayMovies(moviesList) {
+    if (!moviesGrid) return;
     moviesGrid.innerHTML = ""; 
     moviesList.forEach(movie => {
         const movieCard = document.createElement('div');
@@ -102,31 +59,78 @@ function displayMovies(moviesList) {
     });
 }
 
-function fixPlyrTimeline() {
-    const progressContainer = document.querySelector('.plyr__progress');
-    if (!progressContainer) return;
-    progressContainer.addEventListener('touchstart', (e) => { /* লজিক */ }, { passive: false });
+// =========================================================
+// ৩. ৩ সেকেন্ড চেকার ও প্লেয়ার কন্ট্রোল (আপনার অরিজিনাল লজিক)
+// =========================================================
+function openPlayer(id) {
+    if (loader) loader.style.display = "flex";
+    
+    // আপনার সেই পুরোনো লিংক চেকার কোড
+    const checkUrl = "https://lh3.googleusercontent.com/u/0/d/" + id + "=w200-h200-p";
+    const img = new Image();
+    let isLinkValid = false;
+
+    img.onload = () => { isLinkValid = true; };
+    img.onerror = () => { isLinkValid = false; };
+    img.src = checkUrl;
+
+    setTimeout(() => {
+        if (isLinkValid) {
+            startActualPlayer(id);
+        } else {
+            if (loader) loader.style.display = "none";
+            showThemePlayerError(); 
+        }
+    }, 3000); // আপনার ৩ সেকেন্ড টাইমআউট
+}
+
+function startActualPlayer(id) {
+    popup.style.display = "block";
+    document.body.style.overflow = "hidden";
+    
+    const finalVideoUrl = BASE_VIDEO_URL + id;
+    player.source = { 
+        type: 'video', 
+        sources: [{ src: finalVideoUrl, type: 'video/mp4' }] 
+    };
+    
+    player.once('canplay', () => {
+        loader.style.display = "none";
+        player.play().catch(e => console.log("Play failed:", e));
+        if(typeof fixPlyrTimeline === 'function') fixPlyrTimeline();
+    });
+}
+
+// =========================================================
+// ৪. ফুলস্ক্রিন ও অন্যান্য কন্ট্রোল
+// =========================================================
+function toggleFull() {
+    if (!container) return;
+    if (!document.fullscreenElement) {
+        container.requestFullscreen().catch(err => alert(err.message));
+    } else {
+        document.exitFullscreen();
+    }
 }
 
 function closePlayer(){
     if(document.fullscreenElement) document.exitFullscreen();
     player.pause();
     popup.style.display = "none";
-    loader.style.display = "none";
     document.body.style.overflow = "";
 }
 
-// এরর পপআপ হ্যান্ডলিং
-window.showThemePlayerError = () => { document.getElementById("errorPopup").style.display = "flex"; }
-window.closeThemeErrorPopup = () => { document.getElementById("errorPopup").style.display = "none"; }
-window.handleThemeCommentClick = () => { closeThemeErrorPopup(); }
+window.showThemePlayerError = () => document.getElementById("errorPopup").style.display = "flex";
+window.closeThemeErrorPopup = () => document.getElementById("errorPopup").style.display = "none";
+window.handleThemeCommentClick = () => {
+    window.closeThemeErrorPopup();
+    const commentSection = document.getElementById("comments") || document.getElementById("comment-holder");
+    commentSection?.scrollIntoView({ behavior: 'smooth' });
+}
 
-// সার্চ লজিক
-searchBar?.addEventListener('input', () => {
-    const word = searchBar.value.toLowerCase();
+searchBar?.addEventListener('input', (e) => {
+    const word = e.target.value.toLowerCase();
     displayMovies(allMovies.filter(m => m.title.toLowerCase().includes(word)));
 });
 
-// শুরুর কল
 fetchMovies();
-
