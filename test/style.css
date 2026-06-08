@@ -74,7 +74,7 @@ body { background-color: #000; color: #fff; display: flex; justify-content: cent
     justify-content: space-between; /* এটি আইটেমগুলোর মাঝে সমান জায়গা তৈরি করবে */
     align-items: center; 
     padding: 0 20px; /* দুই পাশ থেকে সমান জায়গা */
-    z-index: 1000003; 
+   
 }
 
 .nav-item { 
