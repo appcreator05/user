@@ -1,0 +1,12 @@
+{
+  "name": "firebase-cleanup",
+  "version": "1.0.0",
+  "description": "Auto cleanup expired subscriptions and devices",
+  "main": "cleanup.js",
+  "scripts": {
+    "start": "node cleanup.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.0.0"
+  }
+}
