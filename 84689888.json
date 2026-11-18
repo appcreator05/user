@@ -1,6 +1,15 @@
 [
   {
     "id": "ghwebplex",
+    "title": "Labas Pasok 2026",
+    "category": "Tagalog Movie",
+    "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795025394986.jpg",
+    "rating": "0.0",
+    "cast": "Jenn Rosa, Mark Dionisio, Ghion Layug, Lea Bernabe",
+    "link": "https://github.com/webmplex-ui/sdshhgf1/releases/download/fghdf/Labas-pasok.mp4"
+  },
+  {
+    "id": "ghwebplex",
     "title": "Ramayana: Rise of a Legend 2026",
     "category": "Bollywood Hindi Movie",
     "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795024751100.jpg",
