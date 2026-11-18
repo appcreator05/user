@@ -1,5 +1,23 @@
 [
   {
+    "id": "ghwebmplex",
+    "title": "Can This Love Be Translated? 2026",
+    "category": "Web Series",
+    "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795020352757.jpg",
+    "rating": "8.4",
+    "cast": "Kim Seon-ho, Go Youn-jung, Sota Fukushi, Lee E-dam, Choi Woo-sung",
+    "episodes": [
+      {
+        "episode": 1,
+        "drc": "https://github.com/webmplex-ui/sdshhgf1/releases/download/fghdf/CanThisLoveBeTranslatedS0120261.mkv"
+      },
+      {
+        "episode": 2,
+        "drc": "https://github.com/webmplex-ui/sdshhgf1/releases/download/fghdf/CanThisLoveBeTranslatedS0120262.mkv"
+      }
+    ]
+  },
+  {
     "id": "ghwemplex",
     "title": "Cerita Lila 2026",
     "category": "Horror Hindi Dubbed",
