@@ -1,6 +1,15 @@
 [
   {
     "id": "gh1122",
+    "title": "Belyas 2025",
+    "category": "Tagalog Movie",
+    "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795373232114.jpg",
+    "rating": "6.8",
+    "cast": "Audrey Avila, Dani Yoshida, Denise Esteban, Matthew Francisco, JD Aguas",
+    "link": "https://github.com/webmplex-ui/1122/releases/download/1122/elya.mp4"
+  },
+  {
+    "id": "gh1122",
     "title": "Sex Trip 2026",
     "category": "Tagalog Movie",
     "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795373073625.jpg",
