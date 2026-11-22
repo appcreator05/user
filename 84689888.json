@@ -1,6 +1,24 @@
 [
   {
     "id": "gh1120",
+    "title": "The Map of Longing 2026",
+    "category": "Web Series",
+    "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795333014819.jpg",
+    "rating": "7.8",
+    "cast": "Alícia Falcó, Pablo Álvarez, Georgina Amorós, Laia Marull, Mario de la Rosa",
+    "episodes": [
+      {
+        "episode": 1,
+        "link": "https://github.com/webmplex-ui/1120/releases/download/1120/Theep1.mkv"
+      },
+      {
+        "episode": 2,
+        "link": "https://github.com/webmplex-ui/1120/releases/download/1120/Theep2.mkv"
+      }
+    ]
+  },
+  {
+    "id": "gh1120",
     "title": "Pinocchio: Unstrung 2026",
     "category": "Horror Hindi Dubbed",
     "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795332175519.jpg",
