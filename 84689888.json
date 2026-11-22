@@ -1,6 +1,15 @@
 [
   {
     "id": "gh1122",
+    "title": "Hibla 2 2026",
+    "category": "Tagalog Movie",
+    "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795373851971.jpg",
+    "rating": "3.0",
+    "cast": "Aliya Raymundo, Margaret Diaz, Albie Casiño, Ghion Layug",
+    "link": "https://github.com/webmplex-ui/1122/releases/download/1122/Hib2.mp4"
+  },
+  {
+    "id": "gh1122",
     "title": "Dutdot 2026",
     "category": "Tagalog Movie",
     "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795373565861.jpg",
