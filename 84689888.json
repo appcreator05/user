@@ -1,6 +1,15 @@
 [
   {
     "id": "gh1123",
+    "title": "Pilot 2024",
+    "category": "Korean Hindi Dubbed",
+    "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795453337942.jpg",
+    "rating": "7.5",
+    "cast": "Cho Jung-seok, Lee Ju-myoung, Han Seon-hwa, Shin Seung-ho, Kim Ji-hyun",
+    "link": "https://github.com/webmplex-ui/1123/releases/download/1123/ilot.mp4"
+  },
+  {
+    "id": "gh1123",
     "title": "Wrangler 2026",
     "category": "Korean Hindi Dubbed",
     "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795453136510.jpg",
