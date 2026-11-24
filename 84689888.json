@@ -1,6 +1,15 @@
 [
   {
     "id": "gh1123",
+    "title": "Chinita 2026",
+    "category": "Tagalog Movie",
+    "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795523282591.jpg",
+    "rating": "0.0",
+    "cast": "Angeli Khang",
+    "link": "https://github.com/webmplex-ui/1123/releases/download/1123/Chn.mp4"
+  },
+  {
+    "id": "gh1123",
     "title": "Fear Street: Prom Queen 2025",
     "category": "Hollywood Hindi Dubbed",
     "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795522474976.jpg",
