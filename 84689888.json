@@ -1,6 +1,24 @@
 [
   {
     "id": "ghsdshhgf1",
+    "title": "Take Charge of My Heart 2026",
+    "category": "Web Series",
+    "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795630429985.jpg",
+    "rating": "8.6",
+    "cast": "Kim Young-kwang, Chae Soo-bin, Cha Woo-min",
+    "episodes": [
+      {
+        "episode": 1,
+        "link": "https://github.com/webmplex-ui/sdshhgf1/releases/download/fghdf/ep1.mkv"
+      },
+      {
+        "episode": 2,
+        "link": "https://github.com/webmplex-ui/sdshhgf1/releases/download/fghdf/ep2.mkv"
+      }
+    ]
+  },
+  {
+    "id": "ghsdshhgf1",
     "title": "Runner 2026",
     "category": "Hollywood Hindi Dubbed",
     "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795628955325.jpg",
