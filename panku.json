@@ -1,6 +1,15 @@
 [
   {
     "id": "gh1127",
+    "title": "Annabelle Comes Home 2019",
+    "category": "Horror Hindi Dubbed",
+    "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795852765752.jpg",
+    "rating": "6.4",
+    "cast": "Mckenna Grace, Madison Iseman, Katie Sarife, Michael Cimino, Samara Lee",
+    "link": "https://github.com/webmplex-ui/1127/releases/download/1127/Anbel.mp4"
+  },
+  {
+    "id": "gh1127",
     "title": "Annabelle: Creation 2017",
     "category": "Horror Hindi Dubbed",
     "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795852498948.jpg",
