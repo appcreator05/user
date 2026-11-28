@@ -1,6 +1,15 @@
 [
   {
     "id": "gh1127",
+    "title": "The Conjuring 2013",
+    "category": "Horror Hindi Dubbed",
+    "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795853108044.jpg",
+    "rating": "7.5",
+    "cast": "Vera Farmiga, Patrick Wilson, Lili Taylor, Ron Livingston, Hayley McFarland",
+    "link": "https://github.com/webmplex-ui/1127/releases/download/1127/TheCon.mp4"
+  },
+  {
+    "id": "gh1127",
     "title": "Annabelle Comes Home 2019",
     "category": "Horror Hindi Dubbed",
     "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795852765752.jpg",
