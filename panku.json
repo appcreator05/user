@@ -1,6 +1,24 @@
 [
   {
     "id": "gh1127",
+    "title": "The Hunting Wives 2025",
+    "category": "Hollywood Hindi Dubbed",
+    "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795851274438.jpg",
+    "rating": "6.9",
+    "cast": "Brittany Snow, Malin Akerman, Dermot Mulroney, Jaime Ray Newman, George Ferrier",
+    "episodes": [
+      {
+        "episode": 1,
+        "link": "https://github.com/webmplex-ui/1127/releases/download/1127/ThHu.mp4"
+      },
+      {
+        "episode": 2,
+        "link": "https://github.com/webmplex-ui/1127/releases/download/1127/ThHu2.mp4"
+      }
+    ]
+  },
+  {
+    "id": "gh1127",
     "title": "Monster Island 2025",
     "category": "Hollywood Hindi Dubbed",
     "poster": "https://cdn.jsdelivr.net/gh/appcreator05/user@main/img/1795849280620.jpg",
